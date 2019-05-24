@@ -1,0 +1,61 @@
+<div class="card">  
+  <div class="card-header" style="text-align:center">  
+      <b>WEL COME TO STUDENT CURD OPERATION</b>  
+  </div>  
+  <div class="card-body">  
+      <form [formGroup]="FromStudent" (ngSubmit)="AddStudent(FromStudent.value)">  
+          <div class="row">  
+              <div class="form-group col-sm-3">  
+                  <label for="company">Student Name</label>  
+                  <input type="text" class="form-control" formControlName="StudentName" id="company" placeholder="Enter Student Name" >  
+                  </div>  
+                  <div class="form-group col-sm-3">  
+                      <label for="company">ContactNo</label>  
+                      <input type="text" class="form-control" formControlName="ContactNo" id="ContactNo" placeholder="Enter ContactNo" >  
+                      </div>  
+                      <div class="form-group col-sm-3">  
+                          <label for="company">Father Name</label>  
+                          <input type="text" class="form-control" formControlName="FName" id="FatherName" placeholder="Enter Father Name" >  
+                          </div>  
+                          <div class="form-group col-sm-3">  
+                              <label for="company">Mother Name</label>  
+                              <input type="text" class="form-control" formControlName="MName" id="MotherName" placeholder="Enter Mother Name" >  
+                              </div>  
+                          </div>  
+                          <div class="row">  
+                              <div class="form-group col-sm-3">  
+                                  <button type="submit" class="btn btn-primary" >Add Student</button>  
+                              </div>  
+                          </div>  
+                      </form>  
+                  </div>  
+                  <div class="card-footer">  
+                      <div class="col-lg-12 table-responsive">  
+                          <table class="table table-striped">  
+                              <thead>  
+                                  <tr>  
+                                      <th>Id</th>  
+                                      <th>Student Name</th>  
+                                      <th>Father Name</th>  
+                                      <th>Mother Name</th>  
+                                      <th>ContactNo</th>  
+                                      <th></th>  
+                                  </tr>  
+                              </thead>  
+                              <tbody>  
+                                  <tr *ngFor="let Student of allStudent|async">  
+                                      <td>{{Student.Id}}</td>  
+                                      <td>{{Student.StudentName}}</td>  
+                                      <td>{{Student.FName}}</td>  
+                                      <td>{{Student.MName}}</td>  
+                                      <td>{{Student.ContactNo}}</td>  
+                                      <td>  
+                                          <button type="button" class="btn btn-primary mr-1" (click)="StudentEdit(Student.Id)">Edit</button>  
+                                          <button type="button" class="btn btn-danger mr-1" (click)="DeleteStudent(Student.Id)">Delete</button>  
+                                      </td>  
+                                  </tr>  
+                              </tbody>  
+                          </table>  
+                      </div>  
+                  </div>  
+              </div>    
